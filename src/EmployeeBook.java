@@ -27,22 +27,23 @@ public class EmployeeBook {
 
     public static void listAllEmployees() {
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null)
+            if (employees[i] != null) {
                 System.out.println(employees[i]);
+            }
         }
     }
     public static void calculateAverageSalary() {
         int sumSalary = 0;
         int numberOfPeople = 0;
-        double v = 0;
+        double AverageSalary = 0;
         for (Employee employee : EmployeeBook.employees) {
             if (employee != null) {
                 sumSalary += employee.getSalary();
                 numberOfPeople++;
             } else break;
         }
-        v = (double) sumSalary / numberOfPeople;
-        System.out.println("Средняя зарплата = " + v + " рублей в месяц.");
+        AverageSalary = (double) sumSalary / numberOfPeople;
+        System.out.println("Средняя зарплата = " + AverageSalary + " рублей в месяц.");
     }
     public static void findTaxValues(String typeOfTaxation) {
         switch (typeOfTaxation) {
@@ -78,7 +79,8 @@ public class EmployeeBook {
                 if (employee.getDepartment() == numberDepartment) {
                     employee.setSalary((int) ((1 + numberDepartment/100) * employee.getSalary()));
                     System.out.println("Зарплата сотрудника № " + employee.getId() + " из отдела № " + employee.getDepartment() + " после индексации равна " + employee.getSalary());
-                } else continue;
+                } else { continue;}
+
             }
     }
     public static void compareSalary(int numberDepartment, int salaryAmount) {
@@ -118,7 +120,14 @@ public class EmployeeBook {
                 if (employee.getId() == ID) {
                     System.out.println(employee);
                     break;
-                } else continue;
-            } else System.out.println("Сотрудник под №" + ID + " не найден.");
+                }
+                else {
+                    continue;
+                }
+            }
+            else {
+                System.out.println("Сотрудник под №" + ID + " не найден.");
+            }
+
     }
 }
