@@ -15,7 +15,6 @@ public class EmployeeBook {
                 e++;
             } else if (employee == null) {
                 employees[e] = new Employee (surName[RANDOM.nextInt(0, surName.length)],   name[RANDOM.nextInt(0, name.length)],  patronymic[RANDOM.nextInt(0, patronymic.length)], RANDOM.nextInt(1,6), RANDOM.nextInt(50000, 450000));
-                System.out.println(true);
                 System.out.println("Новый сотрудник успешно добавлен: "+employees[e]);
                 break;
             }
@@ -50,24 +49,23 @@ public class EmployeeBook {
             case "PROPORTIONAL":
                 for (Employee employee : employees) {
                     if (employee != null) {
-                        double taxValues = employee.getSalary() * 0.13d;
-                        System.out.println(taxValues);
+                        System.out.println(employee.getSalary() * 0.13d);
                     }
                 }
                 break;
             case "PROGRESSIVE":
                 for (Employee employee : employees) {
                     if (employee != null) {
+                        double percent=0;
                         if (employee.getSalary() <= 150000) {
-                            double taxValues = employee.getSalary() * 0.13d;
-                            System.out.println(taxValues);
+                            percent = 0.13d;
                         } else if (employee.getSalary() > 150000 && employee.getSalary() <= 350000) {
-                            double taxValues = employee.getSalary() * 0.17d;
-                            System.out.println(taxValues);
+                            percent = 0.17d;
                         } else if (employee.getSalary() > 350000) {
-                            double taxValues = employee.getSalary() * 0.21d;
-                            System.out.println(taxValues);
+                            percent = 0.21d;
                         }
+                        double taxValues = employee.getSalary() * percent;
+                        System.out.println(taxValues);
                     }
                 }
                 break;
