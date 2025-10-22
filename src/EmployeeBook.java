@@ -34,15 +34,15 @@ public class EmployeeBook {
     public static void calculateAverageSalary() {
         int sumSalary = 0;
         int numberOfPeople = 0;
-        double AverageSalary = 0;
+        double averageSalary = 0;
         for (Employee employee : EmployeeBook.employees) {
             if (employee != null) {
                 sumSalary += employee.getSalary();
                 numberOfPeople++;
             } else break;
         }
-        AverageSalary = (double) sumSalary / numberOfPeople;
-        System.out.println("Средняя зарплата = " + AverageSalary + " рублей в месяц.");
+        averageSalary = (double) sumSalary / numberOfPeople;
+        System.out.println("Средняя зарплата = " + averageSalary + " рублей в месяц.");
     }
     public static void findTaxValues(String typeOfTaxation) {
         switch (typeOfTaxation) {
@@ -77,7 +77,9 @@ public class EmployeeBook {
                 if (employee.getDepartment() == numberDepartment) {
                     employee.setSalary((int) ((1 + numberDepartment/100) * employee.getSalary()));
                     System.out.println("Зарплата сотрудника № " + employee.getId() + " из отдела № " + employee.getDepartment() + " после индексации равна " + employee.getSalary());
-                } else { continue;}
+                } else {
+                    continue;
+                }
 
             }
     }
